@@ -23,11 +23,9 @@ par(mfrow=c(4,3), cex=1.2)
 for (i in 4:14) {
   study <- args[i]
   print(study)
-  #results <- read.delim(paste0(input.dir, "/", study, ".txt"), stringsAsFactors = F)
-  #n <- as.numeric(read.delim(paste0(input.dir, "/n_", study, ".txt"), stringsAsFactors = F, head=F))
-  results <- read.delim("short_CAG.txt", stringsAsFactors = F)
-  n <- 327
-  results$MAC <- results$MAF * 2 * n
+  results <- read.delim(paste0(input.dir, "/", study, ".txt"), stringsAsFactors = F)
+  n <- as.numeric(read.delim(paste0(input.dir, "/n_", study, ".txt"), stringsAsFactors = F, head=F))
+   results$MAC <- results$MAF * 2 * n
   if (common.str == "common") {
     p.vals <- results$PVALUE[results$MAF >= 0.05]
     plot.type <- "MAF >= 0.05"
@@ -35,7 +33,7 @@ for (i in 4:14) {
     p.vals <- results$PVALUE[results$MAF < 0.05]
     p.vals <- results$PVALUE[results$MAC > mac.threshold]
     plot.type <- "MAF < 0.05"
-  } 
+  }
   plotQQ(p.vals, study, plot.type)
 }
 dev.off()
