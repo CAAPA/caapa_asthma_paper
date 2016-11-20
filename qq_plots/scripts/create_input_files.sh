@@ -29,7 +29,7 @@ cut -f4,6 /gpfs/barnes_share/caapa_metal/data/input/ucsf_sf.txt > ../data/input/
 echo 1692 > ../data/input/n_SAGE.txt
 
 #NIH
-cat /gpfs/barnes_share/dcl01_data_aniket/data/CAAPA_jhuGRAAD_BDOS_032416/WASHINGTON/imputed/GENESIS/allchr_output_genesis_info_clean.txt | sed 's/Score.pval/PVALUE/' > ../data/input/NIH.txt
+cut -f4,9 /gpfs/barnes_share/dcl01_data_aniket/data/CAAPA_jhuGRAAD_BDOS_032416/WASHINGTON/imputed/GENESIS/allchr_output_genesis_info_clean.txt | sed 's/Score.pval/PVALUE/' > ../data/input/NIH.txt
 echo 1831 > ../data/input/n_NIH.txt
 
 #SARP
