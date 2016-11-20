@@ -3,6 +3,8 @@ common.str <- args[1]
 mac.threshold <- args[2]
 out.file.name <- args[3]
 input.dir <- "../data/input"
+studies <- c("GRAAD", "BRIDGE", "CAG", "ARIC", "JHS", "SAGE", 
+             "NIH", "SAPPHIRE", "SARP", "BAGS", "GALA")
 
 plotQQ <- function(p.vals, study.name, plot.type) {
   observed <- sort(p.vals)
@@ -20,8 +22,7 @@ plotQQ <- function(p.vals, study.name, plot.type) {
 
 png(out.file.name, width=10, height=16, units = 'in', res = 200)
 par(mfrow=c(4,3), cex=1.2)
-for (i in 4:14) {
-  study <- args[i]
+for (study in studies) {
   print(study)
   results <- read.delim(paste0(input.dir, "/", study, ".txt"), stringsAsFactors = F)
   n <- as.numeric(read.delim(paste0(input.dir, "/n_", study, ".txt"), stringsAsFactors = F, head=F))
