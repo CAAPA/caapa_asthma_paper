@@ -12,9 +12,9 @@ echo 85 > ../data/input/n_BRIDGE.txt
 cut -f4,6 /gpfs/barnes_share/caapa_metal/data/input/chicago.txt > ../data/input/CAG.txt
 echo 270 > ../data/input/n_CAG.txt
 
-#DETROIT - dummy for now
-cp ../data/input/CAG.txt ../data/input/SAPPHIRE.txt
-cp ../data/input/n_CAG.txt ../data/input/n_SAPPHIRE.txt
+#DETROIT
+bash create_sapphire_input.sh
+echo 1891 > ../data/input/n_SAPPHIRE.txt
 
 #ARIC
 bash create_plink_input.sh jackson_aric ARIC
